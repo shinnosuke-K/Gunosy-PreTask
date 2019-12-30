@@ -8,6 +8,5 @@ import (
 )
 
 func Open() (*gorm.DB, error) {
-	dbUrl := os.Getenv("DATABASE_URL") + "?sslmode=disable"
-	return gorm.Open("postgres", dbUrl)
+	return gorm.Open("postgres", os.Getenv("DATABASE_URL"))
 }
