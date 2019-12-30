@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/shinnosuke-K/Gunosy-PreTask/controller"
 
@@ -32,6 +33,10 @@ func (router *Server) Init() error {
 
 	ctr := &controller.Information{DB: db}
 
+	group := router.Engine.Group("/")
+	group.Use(gin){
+
+	}
 	//ユーザアカウントを作成
 	router.Engine.POST("/signup", ctr.CreateHandler)
 	//ユーザ情報を取得
@@ -62,5 +67,10 @@ func main() {
 		log.Fatal(err)
 	}
 	defer s.Close()
-	s.Run(":8080")
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	s.Run(os.Getenv(":" + port))
 }
