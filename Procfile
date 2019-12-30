@@ -1,1 +1,1 @@
-web: RestAPITask
+web: bin/RestAPITask
