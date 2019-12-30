@@ -66,7 +66,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "3000"
+		port = "8080"
 	}
-	s.Run(os.Getenv(":" + port))
+	s.Run(":" + port)
 }
