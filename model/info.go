@@ -37,12 +37,12 @@ func (info *AccountInfo) Insert(db *gorm.DB) (*AccountInfo, string) {
 }
 
 func (info *AccountInfo) AccountByID(db *gorm.DB) (*AccountInfo, string) {
-	var accountInfo AccountInfo
-	if db.Where("user_id = ?", info.UserId).Find(&accountInfo); accountInfo.UserId == "" {
+	var accountInfos AccountInfo
+	if db.Where("user_id = ?", info.UserId).Find(&accountInfos); accountInfos.UserId == "" {
 		return nil, "No User found"
 	}
 
-	return &accountInfo, ""
+	return &accountInfos, ""
 }
 
 func (info *AccountInfo) Update(db *gorm.DB) (*AccountInfo, string) {
