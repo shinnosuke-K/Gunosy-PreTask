@@ -2,6 +2,7 @@ package controller
 
 import (
 	"encoding/base64"
+	"fmt"
 	"net/http"
 	"reflect"
 	"strings"
@@ -96,9 +97,9 @@ func (info *Information) GetInfoHandler(c *gin.Context) {
 	rt := rv.Type()
 	for i := 0; i < rt.NumField(); i++ {
 		field := rt.Field(i)
-		value := rv.FieldByName(field.Name)
-		if tag := field.Tag.Get("json"); !value.IsZero() && tag != "password" {
-			responseBody[field.Tag.Get("json")] = value.String()
+		value := fmt.Sprintf("%v", rv.FieldByName(field.Name))
+		if tag := field.Tag.Get("json"); value != "" && tag != "password" {
+			responseBody[field.Tag.Get("json")] = value
 		}
 	}
 
