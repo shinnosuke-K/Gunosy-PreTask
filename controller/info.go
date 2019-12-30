@@ -66,7 +66,7 @@ func (info *Information) GetInfoHandler(c *gin.Context) {
 	header := c.Request.Header.Get("Authorization")
 	if header == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Authentication Failed",
+			"message": "Authentication Faild",
 		})
 		return
 	}
@@ -74,7 +74,7 @@ func (info *Information) GetInfoHandler(c *gin.Context) {
 	byteHeader, err := base64.StdEncoding.DecodeString(strings.Split(header, "Basic ")[1])
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Authentication Failed",
+			"message": "Authentication Faild",
 		})
 		return
 	}
@@ -118,7 +118,7 @@ func (info *Information) UpdateHandler(c *gin.Context) {
 	header := c.Request.Header.Get("Authorization")
 	if header == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Authentication Failed",
+			"message": "Authentication Faild",
 		})
 		return
 	}
@@ -126,7 +126,7 @@ func (info *Information) UpdateHandler(c *gin.Context) {
 	byteHeader, err := base64.StdEncoding.DecodeString(strings.Split(header, "Basic ")[1])
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Authentication Failed",
+			"message": "Authentication Faild",
 		})
 		return
 	}
@@ -182,7 +182,7 @@ func (info *Information) DeleteHandler(c *gin.Context) {
 	header := c.Request.Header.Get("Authorization")
 	if header == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Authentication Failed",
+			"message": "Authentication Faild",
 		})
 		return
 	}
@@ -190,7 +190,7 @@ func (info *Information) DeleteHandler(c *gin.Context) {
 	byteHeader, err := base64.StdEncoding.DecodeString(strings.Split(header, "Basic ")[1])
 	if err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Authentication Failed",
+			"message": "Authentication Faild",
 		})
 		return
 	}
