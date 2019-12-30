@@ -1,4 +1,4 @@
-module tesk
+module github.com/shinnosuke-K/Gunosy-PreTask
 
 go 1.13
 
