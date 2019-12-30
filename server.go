@@ -33,10 +33,6 @@ func (router *Server) Init() error {
 
 	ctr := &controller.Information{DB: db}
 
-	group := router.Engine.Group("/")
-	group.Use(gin){
-
-	}
 	//ユーザアカウントを作成
 	router.Engine.POST("/signup", ctr.CreateHandler)
 	//ユーザ情報を取得
@@ -72,5 +68,5 @@ func main() {
 	if port == "" {
 		port = "8080"
 	}
-	s.Run(os.Getenv(":" + port))
+	s.Run(os.Getenv(port))
 }
